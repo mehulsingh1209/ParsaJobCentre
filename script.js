@@ -1,178 +1,168 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+// Testimonial slider
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
     
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-    
-    // Close mobile menu when clicking on a link
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    });
-    
-    // Animated Counter
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-    
-    function animateCounters() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / speed;
-            
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(animateCounters, 1);
-            } else {
-                counter.innerText = target;
-            }
-        });
-    }
-    
-    // Initialize counters when they're visible
-    const statsSection = document.querySelector('#stats');
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                animateCounters();
-                observer.unobserve(statsSection);
-            }
-        }, { threshold: 0.5 });
+    if (testimonialSlider && testimonials.length > 0) {
+        let currentSlide = 0;
+        const slideCount = testimonials.length;
         
-        observer.observe(statsSection);
-    }
-    
-    // Nepali Date and Time
-    function updateNepaliDateTime() {
-        const now = new Date();
+        // Set up initial state
+        testimonials.forEach((testimonial, index) => {
+            testimonial.style.transform = `translateX(${index * 100}%)`;
+        });
         
-        // Nepali time
-        const nepaliClock = document.getElementById('nepali-clock');
-        if (nepaliClock) {
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            nepaliClock.textContent = `${hours}:${minutes}:${seconds}`;
+        // Update slider position
+        const updateSlider = () => {
+            testimonials.forEach((testimonial, index) => {
+                testimonial.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+            });
+        };
+        
+        // Next button click handler
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            });
         }
         
-        // Simple Nepali date conversion (approximation for demo purposes)
-        // In a real application, you would use the nepali-date-picker library functions
-        const nepaliDateElement = document.getElementById('nepali-date');
-        if (nepaliDateElement) {
-            const months = ['Baisakh', 'Jestha', 'Asadh', 'Shrawan', 'Bhadra', 'Ashwin', 
-                           'Kartik', 'Mangsir', 'Poush', 'Magh', 'Falgun', 'Chaitra'];
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            
-            // This is a simplified approximation - in a real app, use proper conversion
-            const nepaliYear = now.getFullYear() + 56; // Rough conversion
-            const nepaliMonth = months[now.getMonth()];
-            const nepaliDay = now.getDate();
-            const weekDay = days[now.getDay()];
-            
-            nepaliDateElement.textContent = `${weekDay}, ${nepaliDay} ${nepaliMonth} ${nepaliYear}`;
+        // Previous button click handler
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            });
         }
-    }
-    
-    // Update time every second
-    updateNepaliDateTime();
-    setInterval(updateNepaliDateTime, 1000);
-    
-    // Initialize Nepali Calendar if the library is loaded
-    if (typeof NepaliFunctions !== 'undefined' && document.getElementById('nepaliCalendar')) {
-        const calendarContainer = document.getElementById('nepaliCalendar');
-        // Initialize the calendar with the library functions
-        // This is a placeholder - you would use the actual library methods
-        // NepaliFunctions.initializeCalendar(calendarContainer);
         
-        // For demo purposes, just show a message that the calendar would be here
-        calendarContainer.innerHTML = '<div style="padding: 20px; text-align: center;">Nepali Calendar would be displayed here using the nepali-datepicker library</div>';
+        // Auto-advance slides every 5 seconds
+        let autoSlide = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }, 5000);
+        
+        // Pause auto-advance on hover
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+        });
+        
+        // Resume auto-advance when mouse leaves
+        testimonialSlider.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }, 5000);
+        });
     }
     
-    // Form submission handler
-    const contactForm = document.getElementById('contactForm');
+    // Form validation
+    const contactForm = document.querySelector('#contact-form');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            let isValid = true;
+            const nameInput = document.querySelector('#name');
+            const emailInput = document.querySelector('#email');
+            const messageInput = document.querySelector('#message');
             
-            // Get form data
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+            
+            // Validate name
+            if (!nameInput.value.trim()) {
+                isValid = false;
+                showError(nameInput, 'Please enter your name');
+            }
+            
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+                isValid = false;
+                showError(emailInput, 'Please enter a valid email address');
+            }
+            
+            // Validate message
+            if (!messageInput.value.trim()) {
+                isValid = false;
+                showError(messageInput, 'Please enter your message');
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+        
+        // Helper function to show errors
+        function showError(input, message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            errorDiv.style.color = 'red';
+            errorDiv.style.fontSize = '0.8rem';
+            errorDiv.style.marginTop = '5px';
+            input.parentNode.appendChild(errorDiv);
+            input.style.borderColor = 'red';
+            
+            // Remove error styling on input
+            input.addEventListener('input', function() {
+                input.style.borderColor = '';
+                const error = input.parentNode.querySelector('.error-message');
+                if (error) {
+                    error.remove();
+                }
             });
-            
-            // Show a success message (in a real app, you'd send this data to a server)
-            alert('Thank you for contacting us! We will get back to you soon.');
-            contactForm.reset();
+        }
+    }
+    
+    // Lazy loading images
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if (lazyImages.length > 0) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.getAttribute('data-src');
+                    img.removeAttribute('data-src');
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
         });
     }
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                
-                window.scrollTo({
-                    top: targetPosition - headerHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // Dark mode toggle
+    const darkModeToggle = document.querySelector('#dark-mode-toggle');
     
-    // Highlight active navigation item based on scroll position
-    function highlightNavOnScroll() {
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a');
+    if (darkModeToggle) {
+        // Check for saved user preference
+        const savedTheme = localStorage.getItem('theme');
         
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            const headerHeight = document.querySelector('header').offsetHeight;
-            
-            if (window.pageYOffset >= sectionTop - headerHeight - 100) {
-                current = section.getAttribute('id');
+        // Set initial theme based on saved preference or system preference
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                darkModeToggle.checked = true;
             }
-        });
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.checked = true;
+        }
         
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
+        // Toggle theme on change
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
             }
         });
     }
-    
-    window.addEventListener('scroll', highlightNavOnScroll);
-    highlightNavOnScroll(); // Initialize on page load
 });
