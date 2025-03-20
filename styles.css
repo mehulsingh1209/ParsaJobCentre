@@ -15,6 +15,37 @@
     box-sizing: border-box;
 }
 
+.hero {
+    background-image: url('BirgunjDroneView.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Optional: Add an overlay to make text more readable */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Place the content above the overlay */
+}
+
+/* If you add the overlay, you might want to make text white for better contrast */
+.hero-content h1, 
+.hero-content p {
+    color: #ffffff;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
