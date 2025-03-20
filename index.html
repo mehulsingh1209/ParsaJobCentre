@@ -1,354 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parsa Job Centre</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nepali-date-picker/2.0.1/nepali-datepicker.min.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Parsa<span>Job Centre</span></h1>
-            </div>
-            <div class="nepali-datetime">
-                <div id="nepali-clock"></div>
-                <div id="nepali-date"></div>
-            </div>
-            <nav>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#jobs">Job Types</a></li>
-                    <li><a href="#success">Success Stories</a></li>
-                    <li><a href="#contact" class="cta-btn">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<html>
+  <head><title>Design a modern, user-friendly website for **Parsa Job Centre**, a trusted job agency in **Birgunj, Nepal**, connecting job seekers with top employers. The site should feature a professional homepage with a **call-to-action (CTA)** for job seekers and employers, an **About Us** section highlighting </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      class="favicon-tab"
+      type="image/png"
+      href="/favicon.ico"
+    />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Finding The Right Talent For Your Business</h1>
-                <p>Connecting qualified candidates with top employers since 2014</p>
-                <div class="hero-buttons">
-                    <a href="#jobs" class="btn primary-btn">Find Jobs</a>
-                    <a href="#contact" class="btn secondary-btn">Hire Talent</a>
-                </div>
-            </div>
-        </div>
-    </section>
+      #dora-root {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+    <style>
+      #loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+      }
 
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Parsa<span>Job Centre</span></h2>
-                <p>Your Trusted Recruitment Partner</p>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="/api/placeholder/500/300" alt="Office team meeting">
-                </div>
-                <div class="about-text">
-                    <h3>Who We Are</h3>
-                    <p>Parsa Job Centre is a premier recruitment agency based in Panitanki, dedicated to bridging the gap between talented professionals and leading businesses across various industries.</p>
-                    <p>With years of experience in the recruitment field, we have developed a deep understanding of both employer needs and candidate aspirations, allowing us to create perfect matches that drive business growth and career advancement.</p>
-                    <h3>Our Mission</h3>
-                    <p>To provide exceptional recruitment services that transform businesses and enrich careers through strategic talent acquisition and placement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      #loading img {
+        width: 58px;
+        height: 58px;
+      }
+    </style>
+    <script>
+      window.__ENV = {"RELEASE_VERSION":"da4277c3","BUILD_COMMIT_SHA":"da4277c3992000f3a65a63cac0549c959f97c66d","TARGET":"online","HOME_HOST":"www.dora.run","RUN_HOST":"dora.run","PREVIEW_HOST":"preview.dora.run","SWIMLANE_HOST":"","API_HOST":"api-us.dora.run","NEO_API_HOST":"neo-api.dora.run","CDN_NEO_API_HOST":"cdn-neo-api.dora.run","STATIC_ASSETS_HOST":"cdn-static-e.dora.run","USER_ASSETS_HOST":"cdn-design-e.dora.run","CDN_IMGS_HOST":"cdn-imgs.dora.run","CDN_PUBLIC_DOC_HOST":"cdn-public-document-dora-e.dora.run","REALTIME_HOST":"realtime-next-us.dora.run"};
+      window.__ASSET_PREFIX = 'https://cdn-static-e.dora.run/dora_runner_web';
+      window.__ASSET_MANIFEST = {"main.dart.js":"main.dart.ee4468a1.js","threed_renderer/build/editor.js.LICENSE.txt":"threed_renderer.e578ddea/build/editor.js.LICENSE.txt","threed_renderer/build/glbCompress.js":"threed_renderer.e578ddea/build/glbCompress.js","threed_renderer/build/runner.js":"threed_renderer.e578ddea/build/runner.js","threed_renderer/build/editor.js":"threed_renderer.e578ddea/build/editor.js","threed_renderer/build/chunk.bundle.js":"threed_renderer.e578ddea/build/chunk.bundle.js","threed_renderer/build/runner.js.LICENSE.txt":"threed_renderer.e578ddea/build/runner.js.LICENSE.txt","public/error_pages/internal_error.html":"public/error_pages/internal_error.5610c2b8.html","public/error_pages/not_found.html":"public/error_pages/not_found.32a93b53.html","public/previewer.css":"public/previewer.d2c4671b.css","public/loading.gif":"public/loading.6330c237.gif","public/made_in_dora/tag_icon_white.webp":"public/made_in_dora/tag_icon_white.91514bb1.webp","public/made_in_dora/ai_tag_icon_white.png":"public/made_in_dora/ai_tag_icon_white.1717c340.png","public/made_in_dora/tag_icon.png":"public/made_in_dora/tag_icon.9712852f.png","public/made_in_dora/ai_tag_icon.png":"public/made_in_dora/ai_tag_icon.74d52789.png","public/made_in_dora/ai_tag_bg.png":"public/made_in_dora/ai_tag_bg.1ad890be.png","public/previewer.js":"public/previewer.3d926f51.js"};
+    </script>
+    <script>
+      function setCookie(name, value, days) {
+  var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = '; expires=' + date.toUTCString();
+  }
+  let domain = '';
+  if (window.location.hostname.includes('test.dora.run')) {
+    domain = '; domain=.test.dora.run';
+  } else if (window.location.hostname.includes('prerelease.dora.run')) {
+    domain = '; domain=.prerelease.dora.run';
+  } else if (window.location.hostname.includes('dora.run')) {
+    domain = '; domain=.dora.run';
+  }
+  document.cookie =
+    name + '=' + encodeURIComponent(value) + expires + '; path=/' + domain;
+}
 
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive Recruitment Solutions</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-user-tie"></i>
-                    <h3>Permanent Staffing</h3>
-                    <p>Find full-time employees who will be valuable long-term assets to your company.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Temporary Staffing</h3>
-                    <p>Flexible workforce solutions to meet your short-term and seasonal needs.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-search"></i>
-                    <h3>Executive Search</h3>
-                    <p>Specialized recruitment for senior management and leadership positions.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Contract Staffing</h3>
-                    <p>Project-based professionals to supplement your team for specific initiatives.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+const utmUrlParamKeys = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+];
 
-    <section id="stats" class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3 class="counter" data-target="300">0</h3>
-                    <p>Partner Companies</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="counter" data-target="1000">0</h3>
-                    <p>Jobs Filled</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="counter" data-target="5000">0</h3>
-                    <p>Happy Candidates</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="counter" data-target="10">0</h3>
-                    <p>Years Experience</p>
-                </div>
-            </div>
-        </div>
-    </section>
+const doraUrlParamKeys = ['coupon'];
 
-    <section id="jobs" class="job-types">
-        <div class="container">
-            <div class="section-header">
-                <h2>Job Categories</h2>
-                <p>We Connect Talent Across Various Roles</p>
-            </div>
-            <div class="job-categories">
-                <div class="category">
-                    <i class="fas fa-hard-hat"></i>
-                    <h3>Labour</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-broom"></i>
-                    <h3>Peon</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Guard</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Accountant</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-utensils"></i>
-                    <h3>Waiter</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-concierge-bell"></i>
-                    <h3>Receptionist</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-store"></i>
-                    <h3>Sales Man</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Area Sales Manager</h3>
-                </div>
-                <div class="category">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Supervisor</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+try {
+  var urlParams = new URLSearchParams(window.location.search);
+  let pscd = urlParams.get('pscd');
+  let ps_partner_key = urlParams.get('ps_partner_key');
+  let ps_xid = urlParams.get('ps_xid');
+  let gsxid = urlParams.get('gsxid');
+  let gspk = urlParams.get('gspk');
+  if (ps_partner_key && ps_xid && gsxid && gspk) {
+    setCookie('pscd', pscd, 30);
+    setCookie('ps_partner_key', ps_partner_key, 30);
+    setCookie('ps_xid', ps_xid, 30);
+    setCookie('gsxid', gsxid, 30);
+    setCookie('growSumoPartnerKey', gspk, 30);
+    setCookie('ps_mode', 'trackingV2', 30);
+  }
+  for (const key of utmUrlParamKeys) {
+    if (urlParams.has(key)) {
+      setCookie(key, urlParams.get(key), 30);
+    }
+  }
+  for (const urlParamKey of doraUrlParamKeys) {
+    const key = `dora_${urlParamKey}`;
+    const value = urlParams.get(urlParamKey);
+    if (value) setCookie(key, value, 30);
+  }
+} catch (error) {}
 
-    <section id="partnership" class="partnership">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Partnership Network</h2>
-                <p>Connecting With Over 300 Companies</p>
-            </div>
-            <div class="partnership-content">
-                <p>We've built strong relationships with more than 300 businesses ranging from small local enterprises to large corporations across various industries. Our extensive network allows us to find the perfect match for both employers and job seekers.</p>
-                <div class="partner-logos">
-                    <div class="logo-placeholder"></div>
-                    <div class="logo-placeholder"></div>
-                    <div class="logo-placeholder"></div>
-                    <div class="logo-placeholder"></div>
-                    <div class="logo-placeholder"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </script>
+    
+    <script src="https://cdn-static-e.dora.run/dora_runner_web/threed_renderer.e578ddea/build/runner.js"></script>
+    
+    
+    
+    <script defer src="https://cdn-static-e.dora.run/dora_runner_web/main.dart.ee4468a1.js"></script>
+  <script>window.DORA_PROJECT_PREPARATION="{\"summary\":{},\"editorVersion\":\"v2\",\"releaseVersion\":\"2e45614ac2f59923cabceecb7b03e987\",\"domain\":\"lvuu42tj.dora.run\",\"name\":\"Untitled 2\",\"id\":\"2089096\",\"api\":{\"/action\":{\"version\":\"da0460c4-581d-4488-a640-27d0cde9ea50\"},\"/project/get\":{\"version\":\"2e45614ac2f59923cabceecb7b03e987\"},\"/meta\":{\"version\":\"679c6a6e-8fec-4878-a52f-a6f6ce16f07c\"}}}";</script><script>window.doraAppTitle="Design a modern, user-friendly website for **Parsa Job Centre**, a trusted job agency in **Birgunj, Nepal**, connecting job seekers with top employers. The site should feature a professional homepage with a **call-to-action (CTA)** for job seekers and employers, an **About Us** section highlighting ";</script><!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="My Dora Site">
+            <meta property="og:description" content="Made in Dora">
+            <meta property="og:image" content="https://cdn-static-e.dora.run/public/image_placeholder.png">
+            <!-- Twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="My Dora Site">
+            <meta name="twitter:description" content="Made in Dora">
+            <meta name="twitter:image" content="https://cdn-static-e.dora.run/public/image_placeholder.png">
+            </head>
 
-    <section id="success" class="success-stories">
-        <div class="container">
-            <div class="section-header">
-                <h2>Success Stories</h2>
-                <p>Our Placed Candidates</p>
-            </div>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="/api/placeholder/100/100" alt="Testimonial 1">
-                    </div>
-                    <p>"Parsa Job Centre helped me find my dream job as an accountant in less than a month. Their team was professional and supportive throughout the process."</p>
-                    <h4>Rajesh Sharma</h4>
-                    <p class="position">Senior Accountant</p>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="/api/placeholder/100/100" alt="Testimonial 2">
-                    </div>
-                    <p>"We've been working with Parsa Job Centre for over 5 years and they consistently provide us with qualified candidates who fit our company culture."</p>
-                    <h4>Priya Patel</h4>
-                    <p class="position">HR Manager</p>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="/api/placeholder/100/100" alt="Testimonial 3">
-                    </div>
-                    <p>"After struggling to find work for months, Parsa Job Centre placed me in a great position as a sales manager. I'm grateful for their guidance."</p>
-                    <h4>Amit Kumar</h4>
-                    <p class="position">Area Sales Manager</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <body>
+    <div id="loading"></div>
+    <div id="dora-root"></div>
+    
+    <script>
+      var loading = document.getElementById('loading');
+if (loading) {
+  loading.style.display = 'flex';
+  loading.style.zIndex = 100;
+  var queryParameters = new URLSearchParams(window.location.search);
+  var loadingUrl = window.loadingUrl || queryParameters.get('loadingUrl');
+  var loadingBg = window.loadingBg || queryParameters.get('loadingBg');
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>Get In Touch With Our Team</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>9865313388</p>
-                        <p>9817213384</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>bharatbhushanp8@gmail.com</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Panitanki Near BPC college old building</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Your Phone" required>
-                        </div>
-                        <div class="form-group">
-                            <select name="purpose" required>
-                                <option value="" disabled selected>Select Purpose</option>
-                                <option value="job_seeker">I'm looking for a job</option>
-                                <option value="employer">I'm looking to hire</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+  if (loadingUrl) {
+    if (loadingUrl.endsWith('.json') && bodymovin) {
+      var parentDiv = document.getElementById('loading');
+      var childDiv = document.createElement('div');
+      childDiv.id = 'lottie-container';
+      parentDiv.appendChild(childDiv);
 
-    <section id="nepali-calendar" class="nepali-calendar-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nepali Calendar</h2>
-                <p>Plan Your Interviews and Meetings</p>
-            </div>
-            <div class="calendar-wrapper">
-                <div id="nepaliCalendar"></div>
-            </div>
-        </div>
-    </section>
+      var animation = bodymovin.loadAnimation({
+        container: document.getElementById('lottie-container'),
+        path: loadingUrl,
+        renderer: 'svg',
+      });
+    } else if (
+      loadingUrl.endsWith('.gif') ||
+      loadingUrl.endsWith('.apng') ||
+      loadingUrl.endsWith('.svg') ||
+      loadingUrl.endsWith('.png')
+    ) {
+      loading.innerHTML = `
+            <picture>
+            <img src="${loadingUrl}" alt="loading" style="opacity: 1;">
+            </picture>
+        `;
+    } else {
+    }
+  } else {
+    if (window.__ASSET_PREFIX && window.__ASSET_MANIFEST) {
+      let url = `${window.__ASSET_PREFIX}/${window.__ASSET_MANIFEST['public/loading.gif']}`;
+      loading.innerHTML = `
+        <picture>
+        <img src="${url}" alt="loading" style="opacity: 1;">
+        </picture>
+    `;
+    }
+  }
+  if (loadingBg) {
+    loading.style.backgroundColor = loadingBg;
+    loading.style.backgroundImage = loadingBg;
+  }
 
-    <section id="location" class="location">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Location</h2>
-                <p>Find Us Here</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.4764094374637!2d87.5!3d26.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQwJzEyLjAiTiA4N8KwMzAnMDAuMCJF!5e0!3m2!1sen!2sus!4v1616000000000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
+  const hideLoading = () => (loading.style.display = 'none');
 
-    <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>Parsa<span>Job Centre</span></h2>
-                <p>Your Trusted Recruitment Partner</p>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#jobs">Job Types</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-phone"></i> 9865313388, 9817213384</p>
-                <p><i class="fas fa-envelope"></i> bharatbhushanp8@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Panitanki Near BPC college old building</p>
-            </div>
-            <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-viber"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; Licensed by Government of Nepal. All Rights Reserved.</p>
-            <p>Designed by <a href="https://msr-portfolio.vercel.app/" target="_blank"><i class="fas fa-code"></i> MSR</p>
-        </div>
-    </div>
-</footer>
-    <div class="whatsapp-button">
-        <a href="https://wa.me/9865313388" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+  window.addEventListener('__dora_app_error', () => hideLoading());
+  window.addEventListener('__dora_app_mounted', () => hideLoading());
+}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nepali-date-picker/2.0.1/nepali-datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
-</body>
+    </script>
+  <div class="seo-content" style="opacity: 0; white-space: pre; display: none;">
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Resources</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Connect</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Explore</p>
+<p>© 2025 Parsa Job Center, Inc. All rights reserved.</p>
+<p>About</p>
+<p>Home</p>
+<p>Back to Top</p>
+<p>Explore our quick links to easily navigate our website and access the information you need. Whether you're a job seeker or an employer, we're here to guide you every step of the way</p>
+<p>Quick Links</p>
+<p>Privacy Policy</p>
+<p>© 2023 Parsa Job Centre. All rights reserved. Birgunj, Nepal. Parsa Job Centre is a trusted job agency connecting job seekers with top employers in the region</p>
+<p>Copyright</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre's extensive network and personalized approach made the </p>
+<p>Michael Johnson</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre helped me navigate the job market and find a </p>
+<p>Jane Smith</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre connected me with my dream job</p>
+<p>John Doe</p>
+<p>Have a question or need assistance? Our friendly team is here to help. Contact us today to learn more about our services, explore available job opportunities</p>
+<p>Get in Touch</p>
+<p>Contact Us</p>
+<p>Navigating the job market can be a daunting task, but Parsa Job Centre is here to guide you every step of the way</p>
+<p>Frequently Asked Questions</p>
+<p>FAQs</p>
+<p>Submit Feedback</p>
+<p>At Parsa Job Centre, we take pride in the positive impact we've had on the lives of both job seekers and employers</p>
+<p>What Our Clients Say</p>
+<p>Testimonials</p>
+<p>Facebook</p>
+<p>Coca-Cola</p>
+<p>Shell</p>
+<p>Parsa Job Centre proudly collaborates with a diverse range of industry-leading companies</p>
+<p>Our Esteemed Partners</p>
+<p>Partners</p>
+<p>Apply Now</p>
+<p>Explore Opportunities</p>
+<p>Our Services</p>
+<p>Parsa Job Centre is a trusted job agency in Birgunj, Nepal, dedicated to bridging the gap between job seekers and top </p>
+<p>About Parsa Job Centre</p>
+<p>Post a Job</p>
+<p>Find a Job</p>
+<p>Parsa Job Centre: Your Gateway to Professional Opportunities in Birgunj, Nepal</p>
+<p>Discover Your Dream Job at Parsa Job </p>
+<p>Apply</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Parsa Job Center</p>
+<p>© 2025 Parsa Job Center, Inc. All rights reserved.</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Resources</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Connect</p>
+<p>Contact</p>
+<p>Jobs</p>
+<p>About</p>
+<p>Home</p>
+<p>Explore</p>
+<p>Parsa Job Center</p>
+<p>About</p>
+<p>Home</p>
+<p>Back to Top</p>
+<p>Explore our quick links to easily navigate our website and access the information you need. Whether you're a job seeker or an employer, we're here to guide you every step of the way</p>
+<p>Quick Links</p>
+<p>Privacy Policy</p>
+<p>© 2023 Parsa Job Centre. All rights reserved. Birgunj, Nepal. Parsa Job Centre is a trusted job agency connecting job seekers with top employers in the region</p>
+<p>Copyright</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre's extensive network and personalized approach made the hiring process seamless for our company</p>
+<p>Michael Johnson</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre helped me navigate the job market and find a fulfilling position that aligned with my skills and career goals</p>
+<p>Jane Smith</p>
+<p>Learn More</p>
+<p>Share Story</p>
+<p>Parsa Job Centre connected me with my dream job</p>
+<p>John Doe</p>
+<p>Have a question or need assistance? Our friendly team is here to help. Contact us today to learn more about our services, explore available job opportunities, or discuss how we can partner to meet your hiring needs</p>
+<p>Get in Touch</p>
+<p>Contact Us</p>
+<p>Navigating the job market can be a daunting task, but Parsa Job Centre is here to guide you every step of the way</p>
+<p>Frequently Asked Questions</p>
+<p>FAQs</p>
+<p>Submit Feedback</p>
+<p>At Parsa Job Centre, we take pride in the positive impact we've had on the lives of both job seekers and employers</p>
+<p>What Our Clients Say</p>
+<p>Testimonials</p>
+<p>Facebook</p>
+<p>Coca-Cola</p>
+<p>Shell</p>
+<p>Parsa Job Centre proudly collaborates with a diverse range of industry-leading companies, ensuring that our job seekers have access to the best opportunities available</p>
+<p>Our Esteemed Partners</p>
+<p>Partners</p>
+<p>Apply Now</p>
+<p>Explore Opportunities</p>
+<p>Our Services</p>
+<p>Parsa Job Centre is a trusted job agency in Birgunj, Nepal, dedicated to bridging the gap between job seekers and top employers</p>
+<p>About Parsa Job Centre</p>
+<p>Post a Job</p>
+<p>Find a Job</p>
+<p>Parsa Job Centre: Your Gateway to Professional Opportunities in Birgunj, Nepal</p>
+<p>Discover Your Dream Job at Parsa Job Centre</p>
+<p>Apply</p>
+<p>Parsa Job Center</p>
+
+</div></body>
 </html>
