@@ -648,37 +648,100 @@ nav {
 }
 
 /* Partnership Section */
+/* Partnership Section Styles */
 .partnership {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--light);
+    padding: 60px 0;
+    background-color: #f9f9f9;
 }
 
 .partnership-content {
+    margin-top: 30px;
     text-align: center;
 }
 
 .partnership-content p {
     max-width: 800px;
-    margin: 0 auto var(--spacing-md);
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .partner-logos {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .logo-placeholder {
-    width: 150px;
-    height: 80px;
-    background-color: var(--gray-light);
-    border-radius: var(--border-radius-sm);
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    height: 180px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo-placeholder img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.logo-placeholder p {
+    margin: 10px 0 0;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .partner-logos {
+        gap: 20px;
+    }
+    
+    .logo-placeholder {
+        width: 160px;
+        height: 160px;
+        padding: 15px;
+    }
+    
+    .logo-placeholder img {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-logos {
+        gap: 15px;
+    }
+    
+    .logo-placeholder {
+        width: 130px;
+        height: 130px;
+        padding: 10px;
+    }
+    
+    .logo-placeholder img {
+        max-width: 100px;
+    }
+    
+    .logo-placeholder p {
+        font-size: 0.8rem;
+    }
 }
 
 /* Success Stories Section */
