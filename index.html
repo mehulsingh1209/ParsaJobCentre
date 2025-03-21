@@ -509,56 +509,262 @@
         </div>
     </section>
 
-    <footer class="bg-gray-100 py-8">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Logo and Tagline -->
-            <div>
-                <h2 class="text-2xl font-bold">Parsa<span class="text-blue-600">Job Centre</span></h2>
-                <p class="mt-2 text-gray-600">Your Trusted Recruitment Partner</p>
-            </div>
-            
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#home" class="text-gray-600 hover:text-blue-600">Home</a></li>
-                    <li><a href="#about" class="text-gray-600 hover:text-blue-600">About Us</a></li>
-                    <li><a href="#services" class="text-gray-600 hover:text-blue-600">Services</a></li>
-                    <li><a href="#jobs" class="text-gray-600 hover:text-blue-600">Job Types</a></li>
-                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact Info -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                <p class="mb-2"><i class="fas fa-user mr-2"></i> <span class="font-medium">Contact Person:</span> Bharat Bhushan Pandey</p>
-                <p class="mb-2"><i class="fas fa-phone mr-2"></i> 9865313388, 9817213384</p>
-                <p class="mb-2"><i class="fas fa-envelope mr-2"></i> parsajobcenter4u@gmail.com</p>
-                <p class="mb-2"><i class="fas fa-envelope mr-2"></i> bharatbhushanp8@gmail.com</p>
-                <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Panitanki, Birgunj-8, Parsa (Nepal)</p>
-            </div>
-            
-            <!-- Social & Services -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-                <div class="flex space-x-4 mb-4">
-                    <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook text-xl"></i></a>
-                    <a href="https://wa.me/9865313388" class="text-green-600 hover:text-green-800"><i class="fab fa-whatsapp text-xl"></i></a>
-                    <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-viber text-xl"></i></a>
-                </div>
-                <div class="mt-4">
-                    <p class="mb-2"><i class="fas fa-briefcase mr-2"></i> <span class="font-medium">Services:</span> Job & HR Solutions</p>
-                    <p><i class="fas fa-info-circle mr-2"></i> <span class="font-medium">Note:</span> Contact us for any type of Job & HR solution.</p>
-                </div>
-            </div>
+    <style>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Footer styles */
+  .footer {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-brand h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand span {
+    color: #0066cc;
+  }
+
+  .footer-brand p {
+    color: #6c757d;
+  }
+
+  .footer-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 0 10px 20px;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #343a40;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-section h3:after {
+    content: '';
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    background-color: #0066cc;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #6c757d;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .footer-links a:hover {
+    color: #0066cc;
+    background-color: rgba(0, 102, 204, 0.1);
+  }
+
+  .contact-info p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-info i {
+    color: #0066cc;
+    margin-right: 0.5rem;
+  }
+
+  .contact-info .label {
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .social-icons .facebook {
+    background-color: #3b5998;
+  }
+
+  .social-icons .whatsapp {
+    background-color: #25d366;
+  }
+
+  .social-icons .viber {
+    background-color: #7360f2;
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-note p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .services-note i {
+    color: #0066cc;
+    margin-right: 0.5rem;
+  }
+
+  .copyright {
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-sections {
+      flex-direction: column;
+    }
+    
+    .footer-section {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links ul {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <!-- Logo and Tagline -->
+      <div class="footer-brand">
+        <h2>Parsa<span>Job Centre</span></h2>
+        <p>Your Trusted Recruitment Partner</p>
+      </div>
+      
+      <div class="footer-sections">
+        <!-- Quick Links -->
+        <div class="footer-section footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#jobs">Job Types</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
         
-        <div class="mt-8 pt-4 border-t border-gray-200 text-center text-gray-600">
-            <p>© 2025 Parsa Job Centre. All rights reserved.</p>
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+          <h3>Contact Info</h3>
+          <p><i class="fas fa-user"></i> <span class="label">Contact Person:</span> Bharat Bhushan Pandey</p>
+          <p><i class="fas fa-phone"></i> <span>9865313388, 9817213384</span></p>
+          <p><i class="fas fa-envelope"></i> <span>parsajobcenter4u@gmail.com</span></p>
+          <p><i class="fas fa-envelope"></i> <span>bharatbhushanp8@gmail.com</span></p>
+          <p><i class="fas fa-map-marker-alt"></i> <span>Panitanki, Birgunj-8, Parsa (Nepal)</span></p>
         </div>
+        
+        <!-- Social & Services -->
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/9865313388" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="viber"><i class="fab fa-viber"></i></a>
+          </div>
+          <div class="services-note">
+            <p><i class="fas fa-briefcase"></i> <span class="label">Services:</span> Job & HR Solutions</p>
+            <p><i class="fas fa-info-circle"></i> <span class="label">Note:</span> Contact us for any type of Job & HR solution.</p>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <div class="copyright">
+      <p>© 2025 Parsa Job Centre. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
             </div>
             <div class="footer-bottom">
