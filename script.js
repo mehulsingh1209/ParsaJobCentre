@@ -1,4 +1,5 @@
-// Testimonial slider
+document.addEventListener('DOMContentLoaded', () => {
+    // Testimonial slider
     const testimonialSlider = document.querySelector('.testimonial-slider');
     const testimonials = document.querySelectorAll('.testimonial');
     const prevBtn = document.querySelector('.testimonial-prev');
@@ -162,6 +163,59 @@
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+    
+    // Contact form with API submission
+    const contactFormAPI = document.getElementById('contactForm');
+    
+    if (contactFormAPI) {
+        contactFormAPI.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactFormAPI);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Show loading state
+            const submitButton = contactFormAPI.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            try {
+                // Send form data to our API
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formValues),
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Form submitted successfully
+                    alert('Thank you! Your message has been sent.');
+                    contactFormAPI.reset();
+                    
+                    // Optional: Open WhatsApp
+                    if (result.whatsappUrl && confirm('Would you like to continue this conversation on WhatsApp?')) {
+                        window.open(result.whatsappUrl, '_blank');
+                    }
+                } else {
+                    // Error occurred
+                    alert(`Error: ${result.message || 'Failed to send message. Please try again.'}`);
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred. Please try again later.');
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
             }
         });
     }
