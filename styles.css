@@ -1180,59 +1180,6 @@ footer {
     color: #6c757d;
     font-size: 0.9rem;
 }
-</style>
-
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <!-- Logo and Tagline -->
-            <div class="footer-section footer-brand">
-                <h2>Parsa<span>Job Centre</span></h2>
-                <p>Your Trusted Recruitment Partner</p>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="footer-section footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#jobs">Job Types</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact Info -->
-            <div class="footer-section contact-info">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-user"></i> <span class="label">Contact Person:</span> Bharat Bhushan Pandey</p>
-                <p><i class="fas fa-phone"></i> <span>9865313388, 9817213384</span></p>
-                <p><i class="fas fa-envelope"></i> <span>parsajobcenter4u@gmail.com</span></p>
-                <p><i class="fas fa-envelope"></i> <span>bharatbhushanp8@gmail.com</span></p>
-                <p><i class="fas fa-map-marker-alt"></i> <span>Panitanki, Birgunj-8, Parsa (Nepal)</span></p>
-            </div>
-            
-            <!-- Social & Services -->
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://wa.me/9865313388" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="viber"><i class="fab fa-viber"></i></a>
-                </div>
-                <div class="services-note">
-                    <p><i class="fas fa-briefcase"></i> <span class="label">Services:</span> Job & HR Solutions</p>
-                    <p><i class="fas fa-info-circle"></i> <span class="label">Note:</span> Contact us for any type of Job & HR solution.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2025 Parsa Job Centre. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
 
 /* CSS for smoother image loading */
 .lazy-load {
