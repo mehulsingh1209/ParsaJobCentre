@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }
 
     // Your WhatsApp number (with country code)
-    const whatsappNumber = '1234567890'; // Replace with your actual number
+    const whatsappNumber = '9809108519'; // Replace with your actual number
     
     // Format message for WhatsApp
     const formattedMessage = `
